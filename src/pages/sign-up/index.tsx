@@ -1,4 +1,4 @@
-import {Button, Form, FormProps, Input} from "antd";
+import {Button, Form, FormProps, Input, message} from "antd";
 import {Link} from "react-router-dom";
 import api from "../../api";
 import {ILogin} from "../../interface";
@@ -9,8 +9,9 @@ function SignUp() {
            api.post('auths/sign-up', values).then((res) => {
                 console.log(res.status)
             })
+            message.success("Вы успешно зарегистрировались!");
         } catch (error) {
-            console.log("Произошла ошибка.");
+            message.error("Вы не зарегистрировались!");
         }
     };
 

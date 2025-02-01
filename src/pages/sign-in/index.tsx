@@ -1,4 +1,4 @@
-import {Button, Form, FormProps, Input} from "antd";
+import {Button, Form, FormProps, Input, message} from "antd";
 import {Link} from "react-router-dom";
 import {ILogin} from "../../interface";
 import api from "../../api";
@@ -11,8 +11,9 @@ function SignIn() {
                 localStorage.setItem('token', res.data);
                 window.location.href = '/company';
             });
+            message.success('Вы успешно вошли!');
         } catch (error) {
-            console.log('Failed:', error);
+            message.error('Вы не вошли!');
         }
     };
 
